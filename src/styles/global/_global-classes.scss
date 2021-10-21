@@ -1,0 +1,17 @@
+.-no-mobile {
+  @include mobile() {
+    display: none !important;
+  }
+}
+
+.-no-tablet {
+  @include tablet() {
+    display: none !important;
+  }
+}
+
+.no-desktop {
+  @include desktop() {
+    display: none !important;
+  }
+}

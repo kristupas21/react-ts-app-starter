@@ -1,0 +1,70 @@
+%visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@mixin gapX($gap) {
+  & > * {
+    &:not(:first-child) {
+      margin: 0 0 0 $gap;
+    }
+  }
+}
+
+@mixin gapY($gap) {
+  & > * {
+    &:not(:first-child) {
+      margin: $gap 0 0 0;
+    }
+  }
+}
+
+@mixin gapYReversed($gap) {
+  & > * {
+    &:not(:last-child) {
+      margin: $gap 0 0 0;
+    }
+  }
+}
+
+@mixin flex(
+  $y: unset,
+  $x: flex-start,
+  $dir: row,
+  $gap: unset
+) {
+  align-items: $y;
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $x;
+
+  @if ($gap != unset) {
+    @if ($dir == row) {
+      @include gapY(0);
+      @include gapX($gap);
+    } @else if ($dir == column-reverse) {
+      @include gapX(0);
+      @include gapYReversed($gap);
+    } @else {
+      @include gapX(0);
+      @include gapY($gap);
+    }
+  }
+}
+
+@mixin inlineFlex(
+  $y: flex-start,
+  $x: flex-start,
+  $dir: row,
+  $gap: 0
+) {
+  @include flex($y, $x, $dir, $gap);
+
+  display: inline-flex;
+}

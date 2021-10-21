@@ -1,0 +1,44 @@
+
+* {
+  box-sizing: border-box;
+}
+
+a:visited {
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+body.-hide-focus {
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  details,
+  [tabindex]:not([tabindex="-1"]) {
+    outline: none;
+  }
+}

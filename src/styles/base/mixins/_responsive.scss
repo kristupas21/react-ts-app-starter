@@ -1,0 +1,37 @@
+@mixin mobile-narrow {
+  @media (max-width: $screen-max-mobile-narrow) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $screen-max-mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $screen-max-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $screen-min-desktop) {
+    @content;
+  }
+}
+
+/* smartphones, touchscreens */
+@mixin touchscreen {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
+/* mouse */
+@mixin mouse {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
